@@ -1,33 +1,53 @@
-function startExperience() {
-  document.querySelector(".overlay").style.display = "none";
-  document.getElementById("content").classList.remove("hidden");
-  revealSections();
+let index = 0;
+
+const slides = [
+  {
+    text: "Hey Juhi",
+    sub: "Quick break from whatever’s going on."
+  },
+  {
+    text: "Even Tony Stark needed a break sometimes.",
+    sub: "You don’t have to solve everything today."
+  },
+  {
+    text: "Happiness can be found, even in the darkest of times.",
+    sub: "— Dumbledore"
+  },
+  {
+    text: "You don’t need to prove anything today.",
+    sub: "Just get through it."
+  },
+  {
+    text: "We’re all figuring it out as we go.",
+    sub: "And that’s okay."
+  },
+  {
+    text: "",
+    sub: "",
+    button: true
+  },
+  {
+    text: "Okay, that’s it.",
+    sub: "Go back to your world."
+  }
+];
+
+function nextSlide() {
+  if (index >= slides.length - 1) return;
+  index++;
+
+  document.getElementById("message").innerText = "";
+
+  const slide = slides[index];
+  document.getElementById("text").innerText = slide.text;
+  document.getElementById("subtext").innerText = slide.sub;
+
+  document.getElementById("btn").style.display =
+    slide.button ? "block" : "none";
 }
 
-function showMessage() {
+function showMessage(e) {
+  e.stopPropagation();
   document.getElementById("message").innerText =
-    "Pause. Breathe. Continue later. Nothing important is slipping away.";
+    "Pause. Breathe. Nothing important is slipping away.";
 }
-
-function revealSections() {
-  const sections = document.querySelectorAll("section");
-
-  window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      if (top < window.innerHeight - 50) {
-        sec.classList.add("visible");
-      }
-    });
-  });
-}
-
-// Easter eggs
-document.addEventListener("keydown", (e) => {
-  if (e.key === "l") {
-    alert("Light shows up. Even if you don’t notice immediately.");
-  }
-  if (e.key === "s") {
-    alert("Not everything has to make sense to matter.");
-  }
-});
