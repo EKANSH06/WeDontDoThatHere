@@ -5,46 +5,13 @@
   <title>Juhi</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onclick="nextSlide()">
 
-<div class="overlay" onclick="startExperience()">
-  <h1>Hi Juhi.</h1>
-  <p>This isn’t anything important.<br>Just a quiet space.</p>
-  <span>tap anywhere</span>
-</div>
-
-<div id="content" class="hidden">
-
-<section>
-  <p>Some days feel heavier than they should.</p>
-  <p>Some days just pass without asking.</p>
-</section>
-
-<section>
-  <p>You don’t need to solve everything today.</p>
-  <p>You’re allowed to pause without falling behind.</p>
-</section>
-
-<section>
-  <p>Not everything needs a conclusion.</p>
-  <p>Some things just exist. That’s enough.</p>
-</section>
-
-<section>
-  <p>Calm doesn’t mean weak.</p>
-  <p>Some patterns repeat for a reason.</p>
-</section>
-
-<section>
-  <button onclick="showMessage()">If today feels a bit much</button>
+<div id="slide" class="slide">
+  <h1 id="text"></h1>
+  <p id="subtext"></p>
+  <button id="btn" onclick="showMessage(event)">If today feels heavy</button>
   <p id="message"></p>
-</section>
-
-<section>
-  <p>That’s all.</p>
-  <p>No message behind it.</p>
-</section>
-
 </div>
 
 <script src="script.js"></script>
